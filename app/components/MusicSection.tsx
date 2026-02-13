@@ -9,10 +9,10 @@ export default function MusicSection() {
   const isInView = useInView(ref, { once: true });
   
   return (
-    <section ref={ref} className="py-40 px-6 max-w-5xl mx-auto relative">
-      {/* Effet de fond musical animé */}
+    <section ref={ref} className="py-40 px-6 max-w-6xl mx-auto relative">
+      {/* Effet de fond musical ultra */}
       <motion.div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-20"
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%'],
         }}
@@ -22,10 +22,33 @@ export default function MusicSection() {
           ease: "linear",
         }}
         style={{
-          backgroundImage: 'radial-gradient(circle, #FF6B9D 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
+          backgroundImage: 'radial-gradient(circle, #FFD700 2px, transparent 2px)',
+          backgroundSize: '60px 60px',
         }}
       />
+
+      {/* Cercles dorés flottants */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-32 h-32 rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent)',
+            left: `${10 + i * 12}%`,
+            top: `${20 + (i % 3) * 25}%`,
+          }}
+          animate={{
+            y: [0, -40, 0],
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 4 + i,
+            repeat: Infinity,
+            delay: i * 0.3,
+          }}
+        />
+      ))}
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -33,24 +56,25 @@ export default function MusicSection() {
         transition={{ duration: 1 }}
         className="text-center relative z-10"
       >
-        {/* Icônes musicales flottantes */}
-        {['🎵', '🎶', '💕', '✨'].map((emoji, i) => (
+        {/* Icônes musicales géantes flottantes */}
+        {['🎵', '🎶', '💕', '✨', '👑', '💫'].map((emoji, i) => (
           <motion.div
             key={i}
-            className="absolute text-4xl"
+            className="absolute text-6xl filter drop-shadow-2xl"
             style={{
-              left: `${20 + i * 20}%`,
-              top: `${-10 + (i % 2) * 20}%`,
+              left: `${15 + i * 15}%`,
+              top: `${-15 + (i % 2) * 30}%`,
             }}
             animate={{
-              y: [0, -20, 0],
-              rotate: [0, 10, -10, 0],
-              opacity: [0.3, 0.7, 0.3],
+              y: [0, -30, 0],
+              rotate: [0, 15, -15, 0],
+              scale: [1, 1.4, 1],
+              opacity: [0.4, 0.9, 0.4],
             }}
             transition={{
-              duration: 3 + i,
+              duration: 3 + i * 0.5,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: i * 0.4,
             }}
           >
             {emoji}
@@ -58,93 +82,154 @@ export default function MusicSection() {
         ))}
 
         <motion.h2 
-          className="font-[family-name:var(--font-playfair)] text-6xl md:text-8xl font-bold text-gradient mb-10"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          className="font-italiana text-8xl md:text-9xl font-bold text-neon mb-12 relative"
+          style={{ color: '#8B1538' }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.5, opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          Une chanson pour toi
+          <motion.span
+            animate={{
+              textShadow: [
+                '0 0 20px rgba(255, 215, 0, 0.8)',
+                '0 0 40px rgba(255, 107, 157, 0.8)',
+                '0 0 20px rgba(255, 215, 0, 0.8)',
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+            }}
+          >
+            Une chanson pour toi
+          </motion.span>
         </motion.h2>
         
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.3 }}
-          className="font-[family-name:var(--font-inter)] text-2xl text-gray-700 mb-16 italic"
+          transition={{ delay: 0.5 }}
+          className="font-[family-name:var(--font-inter)] text-3xl text-gradient font-bold mb-20 italic"
         >
-          Parce que la musique dit parfois ce que les mots ne peuvent pas...
+          Parce que la musique dit parfois ce que les mots ne peuvent pas... 🎵
         </motion.p>
         
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotateX: -20 }}
-          animate={isInView ? { opacity: 1, scale: 1, rotateX: 0 } : { opacity: 0, scale: 0.9, rotateX: -20 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          whileHover={{ scale: 1.02, y: -5 }}
-          className="glass-effect rounded-[2.5rem] p-12 shadow-2xl relative overflow-hidden max-w-2xl mx-auto"
+          initial={{ opacity: 0, scale: 0.8, rotateX: -30 }}
+          animate={isInView ? { opacity: 1, scale: 1, rotateX: 0 } : { opacity: 0, scale: 0.8, rotateX: -30 }}
+          transition={{ duration: 1, delay: 0.7, ease: [0.6, 0.05, 0.01, 0.9] }}
+          whileHover={{ scale: 1.05, y: -10, rotateY: 5 }}
+          className="glass-effect rounded-[3rem] p-16 shadow-2xl relative overflow-hidden max-w-3xl mx-auto"
+          style={{ transformStyle: 'preserve-3d' }}
         >
-          {/* Effet de brillance animé */}
+          {/* Effet de brillance dorée ultra */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            className="absolute inset-0"
             animate={{
-              x: ['-100%', '200%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatDelay: 2,
-            }}
-          />
-
-          {/* Bordure animée */}
-          <motion.div
-            className="absolute -inset-1 bg-gradient-to-r from-[#FF6B9D] via-[#9B59B6] to-[#FF6B9D] rounded-[2.5rem] opacity-50 blur-xl"
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              background: [
+                'radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.3), transparent)',
+                'radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.3), transparent)',
+                'radial-gradient(circle at 100% 100%, rgba(255, 215, 0, 0.3), transparent)',
+                'radial-gradient(circle at 0% 100%, rgba(255, 215, 0, 0.3), transparent)',
+                'radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.3), transparent)',
+              ],
             }}
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              backgroundSize: '200% 200%',
             }}
           />
 
+          {/* Bordure dorée animée ultra */}
+          <motion.div
+            className="absolute -inset-2 rounded-[3rem] opacity-70"
+            animate={{
+              background: [
+                'linear-gradient(0deg, #FFD700, #FF6B9D, #9B59B6, #FFD700)',
+                'linear-gradient(90deg, #FFD700, #FF6B9D, #9B59B6, #FFD700)',
+                'linear-gradient(180deg, #FFD700, #FF6B9D, #9B59B6, #FFD700)',
+                'linear-gradient(270deg, #FFD700, #FF6B9D, #9B59B6, #FFD700)',
+                'linear-gradient(360deg, #FFD700, #FF6B9D, #9B59B6, #FFD700)',
+              ],
+              boxShadow: [
+                '0 0 30px rgba(255, 215, 0, 0.6)',
+                '0 0 50px rgba(255, 107, 157, 0.6)',
+                '0 0 30px rgba(255, 215, 0, 0.6)',
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+            style={{
+              filter: 'blur(20px)',
+            }}
+          />
+
+          {/* Étoiles scintillantes */}
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-[#FFD700] rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                scale: [0, 1.5, 0],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.2,
+              }}
+            />
+          ))}
+
           <div className="relative z-10">
-            {/* Tayc - N'y pense plus (chanson sur la rencontre et l'amour naissant) */}
             <iframe
-              style={{ borderRadius: '16px' }}
+              style={{ borderRadius: '20px' }}
               src="https://open.spotify.com/embed/track/3DamFFqW32WihKkTVlwTYQ?utm_source=generator"
               width="100%"
               height="152"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              className="mx-auto"
+              className="mx-auto shadow-2xl"
             ></iframe>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: 1 }}
-              className="font-[family-name:var(--font-inter)] text-sm text-gray-600 mt-8 italic"
+              transition={{ delay: 1.2 }}
+              className="font-italiana text-2xl text-gradient font-bold mt-10"
             >
-              Tayc - N'y pense plus 🎵
+              Tayc - N'y pense plus 🎵✨
             </motion.p>
           </div>
         </motion.div>
 
-        {/* Message final */}
+        {/* Message final spectaculaire */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 1.2 }}
-          className="mt-16"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ delay: 1.5 }}
+          className="mt-20"
         >
-          <p className="font-[family-name:var(--font-inter)] text-xl text-gray-700 italic">
-            Écoute-la en pensant à nous 💫
-          </p>
+          <motion.p 
+            className="font-italiana text-4xl text-3d-gold font-bold"
+            style={{ color: '#8B1538' }}
+            animate={{
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+            }}
+          >
+            Écoute-la en pensant à nous 💫👑
+          </motion.p>
         </motion.div>
       </motion.div>
     </section>
