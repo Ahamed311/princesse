@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --warm-white: #FBF9F7;
-  --bordeaux: #5E0F1B;
-  --champagne: #B08968;
+  --rose-pale: #FFF5F7;
+  --rose-doux: #FFE4E9;
+  --bordeaux: #8B1538;
+  --or-rose: #D4A5A5;
+  --lavande: #E8D5E8;
 }
 
 * {
@@ -17,7 +19,8 @@ html {
 }
 
 body {
-  background: var(--warm-white);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--rose-pale) 0%, var(--rose-doux) 50%, var(--lavande) 100%);
+  background-attachment: fixed;
+  color: #2a2a2a;
   overflow-x: hidden;
 }

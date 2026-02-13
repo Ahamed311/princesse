@@ -12,7 +12,7 @@ export default function ScrollIndicator() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-[#5E0F1B] origin-left z-50"
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8B1538] via-[#D4A5A5] to-[#8B1538] origin-left z-50"
       style={{ scaleX }}
     />
   );

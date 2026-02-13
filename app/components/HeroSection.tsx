@@ -29,8 +29,8 @@ export default function HeroSection() {
         transition={{ duration: 1, delay: 0.2 }}
         className="text-center max-w-4xl"
       >
-        <h1 className="font-[family-name:var(--font-playfair)] text-6xl md:text-8xl lg:text-9xl font-bold text-[#5E0F1B] mb-8">
-          [Son Prénom]
+        <h1 className="font-[family-name:var(--font-playfair)] text-7xl md:text-9xl lg:text-[10rem] font-bold text-[#8B1538] mb-8 flex items-center justify-center gap-4">
+          Princesse <span className="text-6xl md:text-8xl">👑</span>
         </h1>
         
         <motion.p
@@ -44,7 +44,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="inline-block px-10 py-4 bg-[#5E0F1B] text-white font-[family-name:var(--font-inter)] font-medium rounded-full hover:bg-[#7a1524] transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          className="inline-block px-10 py-4 bg-gradient-to-r from-[#8B1538] to-[#D4A5A5] text-white font-[family-name:var(--font-inter)] font-medium rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105"
         >
           Découvrir
         </motion.a>
@@ -52,11 +52,11 @@ export default function HeroSection() {
       
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
+        animate={{ opacity: 0.05 }}
         transition={{ delay: 1 }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, #B08968 0%, transparent 70%)'
+          background: 'radial-gradient(circle at 50% 50%, #D4A5A5 0%, transparent 70%)'
         }}
       />
     </section>

@@ -22,12 +22,12 @@ function Paragraph({ text, index }: { text: string, index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      className="font-[family-name:var(--font-inter)] text-xl md:text-2xl text-gray-800 leading-relaxed mb-8"
+      className="font-[family-name:var(--font-inter)] text-xl md:text-2xl text-gray-800 leading-relaxed mb-10"
     >
       {text.split(' ').map((word, i) => {
         const isKeyword = ['sérieux', 'vrai', 'honnête', 'comptes'].some(k => word.toLowerCase().includes(k.toLowerCase()));
         return (
-          <span key={i} className={isKeyword ? 'text-[#5E0F1B] font-semibold' : ''}>
+          <span key={i} className={isKeyword ? 'text-[#8B1538] font-semibold' : ''}>
             {word}{' '}
           </span>
         );
@@ -38,13 +38,13 @@ function Paragraph({ text, index }: { text: string, index: number }) {
 
 export default function MessageSection() {
   return (
-    <section className="py-20 px-6 max-w-4xl mx-auto">
+    <section className="py-32 px-6 max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 md:p-16 shadow-xl"
+        className="bg-white/60 backdrop-blur-md rounded-[2.5rem] p-10 md:p-20 shadow-2xl border border-white/40"
       >
         {paragraphs.map((text, index) => (
           <Paragraph key={index} text={text} index={index} />
