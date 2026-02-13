@@ -22,81 +22,44 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
-      {/* Particules flottantes animées */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      >
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full"
-            style={{
-              background: `radial-gradient(circle, ${
-                i % 3 === 0 ? '#FF6B9D' : i % 3 === 1 ? '#9B59B6' : '#D4A5A5'
-              }, transparent)`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-center max-w-5xl relative z-10"
-      >
-        {/* Effet de halo derrière le titre */}
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 relative overflow-hidden">
+      {/* Particules réduites pour mobile */}
+      {[...Array(8)].map((_, i) => (
         <motion.div
-          className="absolute inset-0 blur-3xl opacity-30"
+          key={i}
+          className="absolute w-2 h-2 rounded-full hidden md:block"
+          style={{
+            background: `radial-gradient(circle, ${
+              i % 3 === 0 ? '#FF6B9D' : i % 3 === 1 ? '#9B59B6' : '#FFD700'
+            }, transparent)`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
+            y: [0, -20, 0],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
-            duration: 4,
+            duration: 3 + Math.random() * 2,
             repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            background: 'radial-gradient(circle, #FF6B9D, #9B59B6, transparent)',
+            delay: Math.random() * 2,
           }}
         />
+      ))}
 
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="text-center max-w-4xl relative z-10"
+      >
         <motion.h1 
-          className="font-[family-name:var(--font-playfair)] text-7xl md:text-9xl lg:text-[11rem] font-bold mb-8 flex items-center justify-center gap-4 relative"
-          animate={{
-            textShadow: [
-              '0 0 20px rgba(255, 107, 157, 0.5)',
-              '0 0 40px rgba(155, 89, 182, 0.5)',
-              '0 0 20px rgba(255, 107, 157, 0.5)',
-            ],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="font-italiana text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 md:mb-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
+          style={{ color: '#8B1538' }}
         >
-          <span className="text-gradient">Princesse</span>
+          <span className="text-neon">Princesse</span>
           <motion.span 
-            className="text-6xl md:text-8xl"
+            className="text-4xl sm:text-6xl md:text-7xl"
             animate={{
               rotate: [0, 10, -10, 0],
               scale: [1, 1.2, 1],
@@ -111,78 +74,74 @@ export default function HeroSection() {
           </motion.span>
         </motion.h1>
         
-        <motion.div
+        <motion.p
+          className="font-[family-name:var(--font-inter)] text-base sm:text-xl md:text-2xl text-gray-700 mb-8 md:mb-12 min-h-[2em] px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="relative"
+          transition={{ delay: 0.5 }}
         >
-          <motion.p
-            className="font-[family-name:var(--font-inter)] text-2xl md:text-3xl text-gray-700 mb-12 min-h-[3em] font-light italic"
-            style={{
-              textShadow: '0 2px 10px rgba(0,0,0,0.1)',
-            }}
+          {text}
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+            className="text-[#FF6B9D]"
           >
-            {text}
-            <motion.span
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 0.8, repeat: Infinity }}
-              className="text-[#FF6B9D]"
-            >
-              |
-            </motion.span>
-          </motion.p>
-        </motion.div>
+            |
+          </motion.span>
+        </motion.p>
         
+        {/* Bouton WOW spectaculaire */}
         <motion.a
           href="#decouvrir"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5 }}
-          whileHover={{ 
-            scale: 1.1,
-            boxShadow: '0 20px 60px rgba(255, 107, 157, 0.4)',
-          }}
+          transition={{ delay: 1.5 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-12 py-5 bg-gradient-to-r from-[#8B1538] via-[#FF6B9D] to-[#9B59B6] text-white font-[family-name:var(--font-inter)] font-semibold text-lg rounded-full shadow-2xl relative overflow-hidden group"
+          className="relative inline-block group"
         >
-          <span className="relative z-10">Découvrir mon message</span>
+          {/* Bordure animée dorée */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-[#9B59B6] via-[#FF6B9D] to-[#8B1538]"
-            initial={{ x: '-100%' }}
-            whileHover={{ x: '100%' }}
-            transition={{ duration: 0.6 }}
+            className="absolute -inset-1 rounded-full opacity-75 blur-lg"
+            animate={{
+              background: [
+                'linear-gradient(45deg, #FFD700, #FF6B9D, #9B59B6)',
+                'linear-gradient(90deg, #9B59B6, #FFD700, #FF6B9D)',
+                'linear-gradient(135deg, #FF6B9D, #9B59B6, #FFD700)',
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
           />
+          
+          <div className="relative px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#8B1538] via-[#FF6B9D] to-[#9B59B6] text-white font-[family-name:var(--font-inter)] font-bold text-base sm:text-lg rounded-full shadow-2xl overflow-hidden">
+            <span className="relative z-10 flex items-center gap-2">
+              Découvrir mon message
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                ✨
+              </motion.span>
+            </span>
+            
+            {/* Effet shimmer */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              animate={{
+                x: ['-200%', '200%'],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            />
+          </div>
         </motion.a>
       </motion.div>
-
-      {/* Cercles décoratifs animés */}
-      <motion.div
-        className="absolute top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-[#FF6B9D]/20 to-transparent blur-2xl"
-        animate={{
-          scale: [1, 1.5, 1],
-          x: [0, 30, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-gradient-to-br from-[#9B59B6]/20 to-transparent blur-2xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -30, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
     </section>
   );
 }
