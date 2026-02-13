@@ -60,7 +60,7 @@ export default function MusicSection() {
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           whileHover={{ scale: 1.02 }}
-          className="glass-effect rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden max-w-2xl mx-auto"
+          className="glass-effect rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden max-w-3xl mx-auto"
         >
           {/* Bordure animée simplifiée */}
           <motion.div
@@ -79,25 +79,17 @@ export default function MusicSection() {
           />
 
           <div className="relative z-10">
-            <iframe
-              style={{ borderRadius: '16px' }}
-              src="https://open.spotify.com/embed/track/3DamFFqW32WihKkTVlwTYQ?utm_source=generator"
-              width="100%"
-              height="152"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              className="mx-auto shadow-xl"
-            ></iframe>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: 0.8 }}
-              className="font-italiana text-lg sm:text-xl md:text-2xl text-gradient font-bold mt-6 sm:mt-8"
-            >
-              Tayc - N'y pense plus 🎵✨
-            </motion.p>
+            {/* YouTube Video Embed */}
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-xl"
+                src="https://www.youtube.com/embed/1sEhLoiUKCs"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </motion.div>
 
