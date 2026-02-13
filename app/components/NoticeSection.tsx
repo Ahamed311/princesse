@@ -56,7 +56,7 @@ function NoticeCard({ notice, index }: { notice: typeof notices[0], index: numbe
         }}
       />
 
-      <div className="flex flex-col items-center gap-8 relative z-10">
+      <div className="flex flex-col items-center gap-12 relative z-10">
         <motion.div
           whileHover={{ scale: 1.05, rotateY: 5 }}
           transition={{ duration: 0.4 }}
@@ -111,7 +111,7 @@ function NoticeCard({ notice, index }: { notice: typeof notices[0], index: numbe
           className="text-center max-w-2xl px-6 glass-effect rounded-3xl p-10"
         >
           <motion.h3 
-            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl font-bold mb-6 text-gradient"
+            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl font-bold mb-8 text-gradient"
             whileHover={{ scale: 1.05 }}
           >
             {notice.title}

@@ -58,7 +58,7 @@ export default function MusicSection() {
         ))}
 
         <motion.h2 
-          className="font-[family-name:var(--font-playfair)] text-6xl md:text-8xl font-bold text-gradient mb-8"
+          className="font-[family-name:var(--font-playfair)] text-6xl md:text-8xl font-bold text-gradient mb-10"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
           transition={{ duration: 0.8 }}
@@ -70,7 +70,7 @@ export default function MusicSection() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.3 }}
-          className="font-[family-name:var(--font-inter)] text-2xl text-gray-700 mb-12 italic"
+          className="font-[family-name:var(--font-inter)] text-2xl text-gray-700 mb-16 italic"
         >
           Parce que la musique dit parfois ce que les mots ne peuvent pas...
         </motion.p>
@@ -112,9 +112,10 @@ export default function MusicSection() {
           />
 
           <div className="relative z-10">
+            {/* Tayc - N'y pense plus (chanson sur la rencontre et l'amour naissant) */}
             <iframe
               style={{ borderRadius: '16px' }}
-              src="https://open.spotify.com/embed/track/3KkXRkHbMCARz0aVfEt68P?utm_source=generator"
+              src="https://open.spotify.com/embed/track/3DamFFqW32WihKkTVlwTYQ?utm_source=generator"
               width="100%"
               height="152"
               frameBorder="0"
@@ -129,7 +130,7 @@ export default function MusicSection() {
               transition={{ delay: 1 }}
               className="font-[family-name:var(--font-inter)] text-sm text-gray-600 mt-8 italic"
             >
-              💡 Remplace ce lien Spotify avec ta chanson préférée
+              Tayc - N'y pense plus 🎵
             </motion.p>
           </div>
         </motion.div>
